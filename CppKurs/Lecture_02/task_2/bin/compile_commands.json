@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ls/Git/CppKurs/Lecture_02/task_2/bin",
+  "command": "/usr/bin/g++      -std=gnu++17 -o CMakeFiles/task_2.dir/src/main.cpp.o -c /home/ls/Git/CppKurs/Lecture_02/task_2/src/main.cpp",
+  "file": "/home/ls/Git/CppKurs/Lecture_02/task_2/src/main.cpp"
+}
+]
