@@ -48,8 +48,8 @@ cv::Mat Deserialize(const std::string& filename) {
   img_in.read((char*)(&cols), sizeof(cols));
   img_in.read((char*)(&type), sizeof(type));
   img_in.read((char*)(&channels), sizeof(channels));
-  std::cout << "Dimensions: " << cols << " x " << rows << " Type: " << type
-            << std::endl;
+  // std::cout << "Dimensions: " << cols << " x " << rows << " Type: " << type
+  //           << std::endl;
 
   // Read vec
   if (type == 5) {  // float

@@ -1,3 +1,4 @@
+#include <filesystem>
 #include <iostream>
 #include <string>
 
@@ -10,6 +11,7 @@
 
 using std::cout;
 using std::endl;
+namespace fs = std::filesystem;
 
 // DataType<uint>::type == CV_8UC3;  // RGB type
 // Name of Datatypes in OpenCV follows a pattern:
@@ -68,19 +70,12 @@ void MatType(cv::Mat inputMat) {
 }
 
 int main() {
-  // using Matf = cv::Mat_<float>;
-  // Matf image = Matf::zeros(100, 100);
-  // image.at<float>(5.5) = 42.42f;
-  // //   std::string f = "test.exr";
-  // //   cv::imwrite(f, image);
-  // //   Matf copy = cv::imread(f, cv::IMREAD_UNCHANGED);
-  // //   std::cout << copy.at(5, 5) << std::endl;
+  // fs::path img_path = fs::current_path() / "../data/freiburg/images/";
+  fs::path img_path = "/home/ls/dev/datasets/images-freiburg-x10/data1";
 
-  // // ImShow:
-  // std::string window_name = "Test Window";
-  // cv::namedWindow(window_name, cv::WINDOW_AUTOSIZE);
-  // cv::imshow(window_name, image);
-  // cv::waitKey(0);
+  cout << "Image path:  " << img_path << endl;
+  ipb::serialization::sifts::ConvertDataset(img_path);
+  auto dataset = ipb::serialization::sifts::LoadDataset(img_path / "../bin/");
 
   // ImShow lenna:
   // cv::Mat image_lenna = cv::imread("../data/lenna.png", cv::IMREAD_COLOR);
@@ -113,10 +108,14 @@ int main() {
   cv::resize(image_lenna, rs, cv::Size(), 10, 10);
   cv::Mat rs_;
   cv::resize(lenna_, rs_, cv::Size(), 10, 10);
-  cv::imshow("original", image_lenna);
-  // cv::imshow("original zoom", rs);
-  cv::imshow("deserialized", lenna_);
-  // cv::imshow("deserialized  zoom", rs_);
+
+  if (image_lenna.total() < 100) {
+    cv::imshow("deserialized  zoom", rs_);
+    cv::imshow("original zoom", rs);
+  } else {
+    cv::imshow("original", image_lenna);
+    cv::imshow("deserialized", lenna_);
+  }
   cv::waitKey(0);
 
   return 0;

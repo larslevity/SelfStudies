@@ -7,26 +7,37 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)  # important!
 find_package(OpenCV 4 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+# Build own libs
+add_library(sifts_internal SHARED src/sifts_internal.cpp)
+target_include_directories(sifts_internal PRIVATE include/)
+target_link_libraries(sifts_internal ${OpenCV_LIBS})
 
-# add_library(mylib STATIC
-#             src/ipb_algorithm.cpp)
-# target_include_directories(mylib PRIVATE include/ )
-
-# target_link_libraries(mylib ${OpenCV_LIBS}) ## link opencv libs
-
-
-add_library(mat_serialization STATIC
-            src/serialize.cpp)
+add_library(mat_serialization STATIC src/serialize.cpp)
 target_include_directories(mat_serialization PRIVATE include/)
-target_link_libraries(mat_serialization ${OpenCV_LIBS})
+target_link_libraries(mat_serialization 
+        ${OpenCV_LIBS}
+        stdc++fs
+        )
+
+add_library(convert_dataset STATIC src/convert_dataset.cpp)
+target_include_directories(convert_dataset PRIVATE include/)
+target_link_libraries(convert_dataset 
+        ${OpenCV_LIBS} # opencv stuff
+        stdc++fs  # filesystems
+        sifts_internal # compute sifts
+        mat_serialization
+        )
 
 
+# Build main
 add_executable(homework_5 src/main.cpp)
 target_include_directories(homework_5 PRIVATE include/)
-target_link_libraries(homework_5 ${OpenCV_LIBS} mat_serialization)
+target_link_libraries(homework_5 
+        ${OpenCV_LIBS} 
+        mat_serialization 
+        convert_dataset
+        stdc++fs
+        )
 
 
-# add_executable(test_image_browser src/test_image_browser.cpp)
-# target_include_directories(test_image_browser PRIVATE api/)
-# target_link_libraries(test_image_browser PRIVATE image_browser html_writer)
 
