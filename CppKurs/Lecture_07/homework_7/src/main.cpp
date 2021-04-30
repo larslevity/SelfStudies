@@ -16,7 +16,7 @@ using std::endl;
 namespace fs = std::filesystem;
 
 int main() {
-  int k = 100;  // dict_size
+  int k = 15;  // dict_size
   int max_iter = 10;
 
   fs::path img_path = fs::current_path() / "../data/freiburg/images/";
@@ -40,7 +40,7 @@ int main() {
   cout << "dummy centers" << centroids << endl;
 
   // Iterate to understand process:
-  if (0) {
+  if (1) {
     for (auto& p : fs::directory_iterator(img_path)) {
       if (p.path().extension() != ".png") break;
 

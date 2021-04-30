@@ -1,0 +1,5 @@
+if(EXISTS "/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/homework_8_t2_test_test[1]_tests.cmake")
+  include("/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/homework_8_t2_test_test[1]_tests.cmake")
+else()
+  add_test(homework_8_t2_test_test_NOT_BUILT homework_8_t2_test_test_NOT_BUILT)
+endif()

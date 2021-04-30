@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Image.h
+memory
+-
+string
+-
+vector
+-
+IoStrategy.h
+../include/IoStrategy.h
+
+../include/IoStrategy.h
+array
+-
+string
+-
+vector
+-
+
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/src/Image.cpp
+Image.h
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/src/Image.h
+iostream
+-
+string
+-
+

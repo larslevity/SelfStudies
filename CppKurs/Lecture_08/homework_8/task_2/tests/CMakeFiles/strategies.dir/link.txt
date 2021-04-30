@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC   -shared -Wl,-soname,libstrategies.so -o libstrategies.so CMakeFiles/strategies.dir/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/src/IoStrategy.cpp.o -lstdc++fs /usr/lib/x86_64-linux-gnu/libpng.so /usr/lib/x86_64-linux-gnu/libz.so 

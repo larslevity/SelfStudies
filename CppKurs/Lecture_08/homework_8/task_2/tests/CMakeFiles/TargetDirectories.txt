@@ -1,0 +1,5 @@
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/CMakeFiles/rebuild_cache.dir
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/CMakeFiles/homework_8_t2_test_test.dir
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/CMakeFiles/edit_cache.dir
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/CMakeFiles/strategies.dir
+/home/ls/Git/SelfStudies/CppKurs/Lecture_08/homework_8/task_2/tests/CMakeFiles/image.dir
